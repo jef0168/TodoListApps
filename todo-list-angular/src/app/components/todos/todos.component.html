@@ -1,0 +1,11 @@
+<div id="wrapper">
+    <h1>Todo List</h1>
+    <input class="form-control" [(ngModel)]="todo" id="todo-input" type="text" placeholder="Add a todo..." />
+    <button id="add-button" [disabled]="todo === ''" (click)="addTodo()">Add</button>
+    <ul id="todo-list">
+      <li id={{i}} *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completed ? 'done': '') }}" >
+        <h2 class="content" (click)="toggleDone(i)">{{todo.text}}</h2>
+        <button class="delete-button" (click)="removeTodo(i)">X</button>
+      </li>
+    </ul>
+  </div>
